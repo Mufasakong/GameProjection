@@ -13,5 +13,5 @@ void setup(){
 }
 
 void draw(){
-  GR.display();
+  GR.displayGameRoom();
 }
