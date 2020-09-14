@@ -10,7 +10,7 @@ class GameRoom {
   
   }
   
-  void display(){
+  void displayGameRoom(){
     image(Room, width/2, height/2, 2780/2, 970);
   }
 }
