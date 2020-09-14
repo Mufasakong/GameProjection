@@ -14,7 +14,7 @@ class GameRoom {
     }
   }
   
-  void displayGameRoom(){
+  void display(){
     image(Room, width/2, height/2, 2780/2, 970);
     noFill();
     if (mouseX > width/2-3-rSize/2 && mouseX < width/2-3+rSize/2 && mouseY < height/2-200+rSize/2 && mouseY > height/2-200-rSize/2)  {

@@ -16,17 +16,9 @@ void setup(){
 }
 
 void draw(){
-<<<<<<< HEAD
-<<<<<<< HEAD
   GR.display(); 
 }
 
 void mousePressed(){
   GR.MouseInteractions();
-=======
-  GR.displayGameRoom();
->>>>>>> 734f32f50f45812ddec9ec7eda35a250abebc6ad
-=======
-  GR.displayGameRoom();
->>>>>>> 734f32f50f45812ddec9ec7eda35a250abebc6ad
 }
