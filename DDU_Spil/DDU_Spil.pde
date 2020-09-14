@@ -3,6 +3,7 @@
 
 //Objekter
 GameRoom GR;
+UI Interface;
 
 //Setup
 void setup(){
@@ -14,6 +15,7 @@ void setup(){
   
   
   GR = new GameRoom();
+  Interface = new UI();
   
 }
 
@@ -21,8 +23,10 @@ void draw(){
   clear();
   background(0, 175, 0);
   GR.display(); 
+  Interface.UIDisplay();
+  
 }
 
-void mousePressed(){
+void mouseReleased(){
   GR.MouseInteractions();
 }
