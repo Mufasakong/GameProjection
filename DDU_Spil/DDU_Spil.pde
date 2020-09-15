@@ -5,7 +5,7 @@
 GameRoom GR;
 UI Interface;
 
-
+int Scene = 1;
 
 //Setup
 void setup(){
@@ -23,15 +23,27 @@ void setup(){
 
 void draw(){
   clear();
-
+ 
   background(100, 100, 175);
+  if (Scene == 1) {
   GR.display(); 
   Interface.UIDisplay();
+  }
   
+  Interface.Progress();
+  
+  /* if (mousePressed == true) {
+    ellipse( mouseX, mouseY, 2, 2 );
+  text( "x: " + mouseX + " y: " + mouseY, mouseX + 2, mouseY );
+  }
+  */
 }
 
 void mouseClicked(){
   GR.MouseInteractions();
 
+}
+
+void mousePressed() {
   
 }
