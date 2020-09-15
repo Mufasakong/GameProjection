@@ -39,9 +39,11 @@ class GameRoom {
    
   void MouseInteractions() {
     if (AreaCheck(ClosetPos.x, ClosetPos.y, ClosetSize.x, ClosetSize.y))  {
-      image(OpenCloset, width/2, height/2, 2780/2, 970);
-     
-      
+      image(OpenCloset, width/2, height/2, 2780/2, 970);    
+    }
+    if (AreaCheck(DresserPos.x, DresserPos.y, DresserSize.x, DresserSize.y))  {  
+    }
+    if (AreaCheck(BedPos.x, BedPos.y, BedSize.x, BedSize.y))  {   
     }
   }
   
