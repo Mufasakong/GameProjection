@@ -9,7 +9,7 @@ UI Interface;
 
 //Setup
 void setup(){
-  
+  smooth();
   //fullScreen();
   size(1920, 1080);
   imageMode(CENTER);

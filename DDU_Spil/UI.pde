@@ -2,7 +2,7 @@ class UI {
   PImage Bar;
   PImage Empty;
   
-  int i = -250;
+  float i = -250;
   
   PFont Skater;
   
@@ -16,7 +16,7 @@ class UI {
   
   void UIDisplay() {
     if (i < 170){
-      i++;
+        i++;
       }
     image(Bar, i, 100, 1904/5, 343/5);
     image(Empty, 170, 100, 2025/5, 490/5);
@@ -24,7 +24,7 @@ class UI {
     fill(255);
     text("Skabet", width-250, height-200);
     }
-    text(i+250, width-250, height-150);
+    text(floor(i+250), width-250, height-150);
     }
   }
  
