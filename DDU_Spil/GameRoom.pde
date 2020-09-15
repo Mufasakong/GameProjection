@@ -4,8 +4,9 @@ class GameRoom {
   PImage Bertram;
   PImage OpenCloset;
   PImage Bed;
-  float BertX = width/2;
-  float BertY = height/2+200;
+  
+  PVector BertPos = new PVector(width/2, height/2+200);
+
   
   //Closet
   PVector ClosetPos = new PVector(width/2-10, height/2-225);
@@ -43,7 +44,7 @@ class GameRoom {
   
   void display(){
     image(Room, width/2, height/2, 4345/2.5, 2906/2.5);
-    image(Bertram, BertX, BertY, 153, 326);
+    image(Bertram, BertPos.x, BertPos.y, 153, 326);
     image(Bed, 319, height/2+80, 2510/4, 1788/4);
     noFill();
     

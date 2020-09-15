@@ -1,7 +1,6 @@
 public class UI extends GameRoom {
-  PImage Bar;
   PImage Empty;
-  
+  PImage[] Bar = {loadImage("Bar.png"), loadImage("RedBar.png")};
  
   
   float i = -250;
@@ -9,7 +8,6 @@ public class UI extends GameRoom {
   PFont Skater;
   
   UI () {
-    Bar = loadImage("Bar.png");
     Empty = loadImage("Meter.png");
     Skater = createFont("Skater.ttf", 64);
     textFont(Skater);
@@ -38,9 +36,13 @@ public class UI extends GameRoom {
     
    void Progress() {
    if (i < 170){
-        i++;
+        i ++;
       }
-    image(Bar, i, 100, 1904/5, 343/5);
+      if (i < 120) {
+    image(Bar[0], i, 100, 1904/5, 343/5);
+      } else {
+    image(Bar[1], i, 100, 1904/5, 343/5);
+      }
     image(Empty, 170, 100, 2025/5, 490/5);
     }
   }
