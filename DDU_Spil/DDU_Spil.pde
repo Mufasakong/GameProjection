@@ -32,11 +32,12 @@ void draw(){
   
   Interface.Progress();
   
-  /* if (mousePressed == true) {
+ if (mousePressed == true) {
     ellipse( mouseX, mouseY, 2, 2 );
   text( "x: " + mouseX + " y: " + mouseY, mouseX + 2, mouseY );
+  text(frameRate, mouseX+64, mouseY+64);
   }
-  */
+  
 }
 
 void mouseClicked(){
