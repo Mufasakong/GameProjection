@@ -32,6 +32,7 @@ void draw(){
   
   Interface.Progress();
   
+  //Debug
  if (mouseButton == RIGHT) {
     ellipse( mouseX, mouseY, 2, 2 );
   text( "x: " + mouseX + " y: " + mouseY, mouseX + 2, mouseY );
