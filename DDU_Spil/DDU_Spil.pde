@@ -30,6 +30,8 @@ void draw(){
   
 }
 
-void mouseReleased(){
+void mouseClicked(){
   GR.MouseInteractions();
+
+  
 }

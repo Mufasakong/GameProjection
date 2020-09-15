@@ -2,18 +2,22 @@ class GameRoom {
   
   PImage Room;
   PImage Bertram;
+  PImage Skabopen;
   float BertX = width/2;
   float BertY = height/2+200;
   
   GameRoom(){
     Room = loadImage("GameRoom.png");
     Bertram = loadImage("Bert.png");
+     Skabopen = loadImage("OpenCloset.png");
     
   }
   
   void MouseInteractions() {
     if (mouseX > width/2-3-270/2 && mouseX < width/2-3+270/2 && mouseY < height/2-200+270/2 && mouseY > height/2-200-270/2)  {
-      println("Du");
+      image(Skabopen, width/2, height/2, 2780/2, 970);
+   
+      
     }
   }
   
