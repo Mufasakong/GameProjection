@@ -5,6 +5,8 @@
 GameRoom GR;
 UI Interface;
 
+
+
 //Setup
 void setup(){
   
@@ -12,7 +14,7 @@ void setup(){
   size(1920, 1080);
   imageMode(CENTER);
   rectMode(CENTER);
-  
+  frameRate(60);
   
   GR = new GameRoom();
   Interface = new UI();
@@ -21,7 +23,8 @@ void setup(){
 
 void draw(){
   clear();
-  background(0, 175, 0);
+
+  background(100, 100, 175);
   GR.display(); 
   Interface.UIDisplay();
   

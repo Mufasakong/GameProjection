@@ -14,14 +14,13 @@ class GameRoom {
   
   void MouseInteractions() {
     if (mouseX > width/2-3-rSize/2 && mouseX < width/2-3+rSize/2 && mouseY < height/2-200+rSize/2 && mouseY > height/2-200-rSize/2)  {
-      
       println("Du");
     }
   }
   
   void display(){
     image(Room, width/2, height/2, 2780/2, 970);
-    image(Bertram, mouseX, mouseY, 153, 326);
+    image(Bertram, BertX, BertY, 153, 326);
     noFill();
     if (mouseX > width/2-3-rSize/2 && mouseX < width/2-3+rSize/2 && mouseY < height/2-200+rSize/2 && mouseY > height/2-200-rSize/2)  {
      strokeWeight(5);
