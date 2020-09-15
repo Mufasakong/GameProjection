@@ -7,6 +7,7 @@ class GameRoom {
   float BertX = width/2;
   float BertY = height/2+200;
   
+  
   GameRoom(){
     Room = loadImage("GameRoom.png");
     Bertram = loadImage("Bert.png");
@@ -15,8 +16,16 @@ class GameRoom {
     
   }
   
+   public boolean ClosetPos() {
+     if (mouseX > width/2-10-300/2 && mouseX < width/2-10+300/2 && mouseY < height/2-225+267/2 && mouseY > height/2-225-267/2) {
+     return true;
+     } else {
+       return false;
+     }
+   }
+  
   void MouseInteractions() {
-    if (mouseX > width/2-3-270/2 && mouseX < width/2-3+270/2 && mouseY < height/2-200+270/2 && mouseY > height/2-200-270/2)  {
+    if (ClosetPos() == true)  {
       image(OpenCloset, width/2, height/2, 2780/2, 970);
    
       
@@ -28,10 +37,10 @@ class GameRoom {
     image(Bertram, BertX, BertY, 153, 326);
     image(Bed, 319, height/2+80, 2510/4, 1788/4);
     noFill();
-    if (mouseX > width/2-3-270/2 && mouseX < width/2-3+270/2 && mouseY < height/2-200+270/2 && mouseY > height/2-200-270/2)  {
+    if (ClosetPos() == true)  {
      strokeWeight(5);
       stroke(255, 255, 0);
-      rect(width/2-3, height/2-210, 270, 270);
+      rect(width/2-10, height/2-225, 300, 267);
     }
   }
 }
