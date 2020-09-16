@@ -55,7 +55,9 @@ public class UI extends GameRoom {
     textSize(64);
     text(round(180-i), i*5/3+100, 120);
     image(BertMom, 95, 100);
-    println(i);
+    
+    //Score
+    text(round(0+toy)+"/5",1700,100);
 
     //GAMEOVER
     if (180-i < 1) {

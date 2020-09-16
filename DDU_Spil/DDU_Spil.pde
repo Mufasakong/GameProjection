@@ -11,12 +11,13 @@ PImage Grimlock;
 
 
 int Scene = 1;
+int toy = 0;
 
 //Setup
 void setup() {
   smooth();
-  //fullScreen();
-  size(1920, 1080);
+  fullScreen();
+  //size(1920, 1080);
   imageMode(CENTER);
   rectMode(CENTER);
   frameRate(60);
@@ -57,7 +58,12 @@ void draw() {
 }
 
 void mouseClicked() {
+  if (Scene == 1){
   GR.MouseInteractions();
+  }
+  else if (Scene == 2) {
+  ST.skabOpenKnap();
+  }
 }
 
 void mousePressed() {
