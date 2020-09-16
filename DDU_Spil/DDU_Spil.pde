@@ -34,7 +34,11 @@ void draw() {
 
   background(100, 100, 175);
   if (Scene >= 1) {
-    GR.display(); 
+    GR.display();
+  }
+
+  if (Scene == 1) {
+    GR.mouseCheck();
     Interface.UIDisplay();
   }
 
