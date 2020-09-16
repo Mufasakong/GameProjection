@@ -33,7 +33,7 @@ void draw() {
   clear();
 
   background(100, 100, 175);
-  if (Scene == 1) {
+  if (Scene >= 1) {
     GR.display(); 
     Interface.UIDisplay();
   }
