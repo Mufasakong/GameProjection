@@ -19,7 +19,7 @@ void setup() {
   size(1920, 1080);
   imageMode(CENTER);
   rectMode(CENTER);
-  frameRate(120);
+  frameRate(60);
   OpenCloset = loadImage("OpenCloset.png");
   OpenCloset.resize(2780/2, 970); 
   Grimlock = loadImage("Grimlock.png");
