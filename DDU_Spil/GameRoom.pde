@@ -2,7 +2,6 @@ class GameRoom {
   
   PImage Room;
   PImage Bertram;
-  PImage OpenCloset;
   PImage Bed;
   
   PVector BertPos = new PVector(width/2, height/2+200);
@@ -23,7 +22,7 @@ class GameRoom {
     Room.resize(round(4345/2.5), round(2906/2.5));
     Bertram = loadImage("Bert.png");
     Bertram.resize(153, 326);
-    OpenCloset = loadImage("OpenCloset.png");
+    
     Bed = loadImage("Bed.png");
     Bed.resize(2510/4, 1788/4);
     
@@ -39,7 +38,7 @@ class GameRoom {
    
   void MouseInteractions() {
     if (AreaCheck(ClosetPos.x, ClosetPos.y, ClosetSize.x, ClosetSize.y))  {
-      image(OpenCloset, width/2, height/2, 2780/2, 970);    
+      Scene = 2;   
     }
     if (AreaCheck(DresserPos.x, DresserPos.y, DresserSize.x, DresserSize.y))  {  
     }
