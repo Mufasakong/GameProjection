@@ -65,8 +65,6 @@ public class UI extends GameRoom {
     textSize(64);
     text(round(180-i), 66, 550);
 
-    //image(BertMom, 100, 94);
-
     //Score
     text(round(0+toy)+"/5", 1700, 100);
 
