@@ -49,6 +49,20 @@ void draw() {
     ST.displayOpenSkab();
   }
 
+  if (Scene == 3){
+    
+  }
+  
+  if (Scene == 4){
+  
+  }
+  if (Scene == 5){
+  
+  }
+  if (Scene == 6){
+    
+  }
+  
   //Debug
   if (mouseButton == RIGHT) {
     ellipse( mouseX, mouseY, 2, 2 );
