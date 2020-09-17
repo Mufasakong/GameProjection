@@ -11,6 +11,10 @@ PImage OpenCloset;
 PImage Grimlock;
 PImage KommodeOpen;
 PImage Isbjoern;
+PImage RT;
+PImage LBT;
+PImage LT;
+
 
 int Scene = 1;
 int toy = 0;
@@ -35,7 +39,12 @@ void setup() {
   KommodeOpen.resize(4100/4, 3043/4);
   Isbjoern = loadImage("isbjoern.png");
   Isbjoern.resize(1779/5, 1192/5);
-
+  RT = loadImage("RT.png");
+  RT.resize(250,200);
+  LBT = loadImage("LBT.png");
+  LBT.resize(250,200);
+  LT = loadImage("LT.png");
+  LT.resize(250,200);
 
   //Objekt Creater
   GR = new GameRoom();
