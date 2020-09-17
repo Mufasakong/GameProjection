@@ -1,24 +1,31 @@
 public class UI extends GameRoom {
   PImage Empty;
   PImage BertMom;
+  PImage BertMomAngry;
 
   PImage[] Bar = new PImage[2];
 
   float i = 0;
 
+  int resizeBarB = 343;
+  int resizeBarH = 1904;
+
   PFont Skater;
 
   UI () {
-    Empty = loadImage("Meter.png");
-    Empty.resize(2025/5, 490/5);
+    Empty = loadImage("Meter_ver.png");
+    Empty.resize(490/5, 2025/5);
 
-    BertMom = loadImage("Mymom.png");
+    BertMom = loadImage("Mymomv2.png");
     BertMom.resize(200, 200);
 
-    Bar[0] = loadImage("Bar.png");
-    Bar[1] = loadImage("RedBar.png");
-    Bar[0].resize(1904/5, 343/5);
-    Bar[1].resize(1904/5, 343/5);
+    BertMomAngry = loadImage("Mymom_red_face.png");
+    BertMomAngry.resize(200, 200);
+
+    Bar[0] = loadImage("Bar_ver.png");
+    Bar[1] = loadImage("RedBar_ver.png");
+    Bar[0].resize(343/5, 1904/5);
+    Bar[1].resize(343/5, 1904/5);
 
     Skater = createFont("Skater.ttf", 64);
     textFont(Skater);
@@ -47,17 +54,21 @@ public class UI extends GameRoom {
       i += 1/frameRate;
     }
     if (i < 120) {
-      image(Bar[0], i*5/3, 100);
+      image(Bar[0], 100, (i*5/3));
+      image(Empty, 100, 300);
+      image(BertMom, 100, 94);
     } else {
-      image(Bar[1], i*5/3, 100);
+      image(Bar[1], 100, (i*5/3));
+      image(Empty, 100, 300);
+      image(BertMomAngry, 100, 94);
     }
-    image(Empty, 300, 100);
     textSize(64);
-    text(round(180-i), i*5/3+100, 120);
-    image(BertMom, 95, 100);
-    
+    text(round(180-i), 66, 550);
+
+    //image(BertMom, 100, 94);
+
     //Score
-    text(round(0+toy)+"/5",1700,100);
+    text(round(0+toy)+"/5", 1700, 100);
 
     //GAMEOVER
     if (180-i < 1) {
