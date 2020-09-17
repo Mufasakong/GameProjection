@@ -40,6 +40,7 @@ class GameRoom {
       Scene = 2;
     }
     if (AreaCheck(DresserPos.x, DresserPos.y, DresserSize.x, DresserSize.y)) {
+      Scene = 3;
     }
     if (AreaCheck(BedPos.x, BedPos.y, BedSize.x, BedSize.y)) {
     }
