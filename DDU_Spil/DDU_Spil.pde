@@ -11,6 +11,7 @@ GameRoom GR;
 UI Interface;
 SkabTask ST;
 KommodeTask KT;
+Menuer Menu;
 
 PImage OpenCloset;
 PImage Grimlock;
@@ -21,7 +22,7 @@ PImage LBT;
 PImage LT;
 
 
-int Scene = 1;
+int Scene = 0;
 int toy = 0;
 
 //Setup
@@ -32,16 +33,16 @@ void setup() {
   imageMode(CENTER);
   rectMode(CENTER);
   frameRate(60);
-  
+
   loadBilleder();
-  
-   for (int i = 0; i < 100; i++) {
+
+  for (int i = 0; i < 100; i++) {
     nullerTaskList.add(new nullerTask());
   }
-  
+
   obj4 = new nullerTask();
   m = 0;
- fmass = 0;
+  fmass = 0;
   carY = -50;
 
 
@@ -50,14 +51,29 @@ void setup() {
   Interface = new UI();
   ST = new SkabTask();
   KT = new KommodeTask();
+  Menu = new Menuer();
 }
 
 void draw() {
   clear();
 
   background(100, 100, 175);
+  if (Scene == 0) {
+    Menu.startMenu();
+  }
+  if (Scene == -1) {
+    Menu.winScreen();
+  }
+  if (Scene == -2){
+    Menu.loseScreen();
+  }
+  if (Scene == -3){
+    Menu.gameRules();
+  }
+
   if (Scene >= 1) {
     GR.display();
+    Interface.Progress();
   }
 
   if (Scene == 1) {
@@ -74,21 +90,18 @@ void draw() {
   }
 
   if (Scene == 4) {
-      obj4.movingImages();
+    obj4.movingImages();
     if (GrabCar == true) {
-  for (nullerTask t4 : nullerTaskList) {
-    noCursor();
-    t4.fall();
-    t4.display();
+      for (nullerTask t4 : nullerTaskList) {
+        noCursor();
+        t4.fall();
+        t4.display();
       }
     }
   }
-  if (Scene == 5) {
-  }
-  if (Scene == 6) {
-  }
-  
-    Interface.Progress();
+
+
+  //Interface.Progress();
 
   //Debug
   if (mouseButton == RIGHT) {
@@ -100,7 +113,19 @@ void draw() {
 }
 
 void mouseClicked() {
-  //Scene 2 skift
+  if (Scene == 0) {
+    Menu.startMenuKnap();
+  }
+  if (Scene == -1) {
+    Menu.winScreenKnap();
+  }
+  if (Scene == -2) {
+    Menu.loseScreenKnap();
+  }
+  if (Scene == -3) {
+   Menu.gameRulesKnap(); 
+  }
+
   if (Scene == 1) {
     GR.MouseInteractions();
   } else if (Scene == 2) {

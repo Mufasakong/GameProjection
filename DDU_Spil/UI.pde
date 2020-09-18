@@ -67,7 +67,7 @@ public class UI extends GameRoom {
     text(fmass, width/2, 50);
 
     //Score
-    text(round(0+toy)+"/5", 1700, 100);
+    text(round(0+toy)+"/3", 1700, 100);
 
     //GAMEOVER
     if (180-i < 1) {

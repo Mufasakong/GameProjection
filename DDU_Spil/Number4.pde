@@ -11,8 +11,8 @@ class nullerTask {
   nullerTask() {
   }
 
-void display() {
-  stroke(138, 43, 226);
+  void display() {
+    stroke(138, 43, 226);
     fill(255);
     image(nullerman, obstacles.x, obstacles.y, 50, 50);
 
@@ -35,17 +35,12 @@ void display() {
         obstacles.x = random(width);
         obstacles.y = random(height, 800);
         gravity.y = random(4, 20);
-              fmass++;
-      }else{
-        if (fmass < 300)
-        gMass
-      
-      }
-
-      
-    } if (fmass >= 300) {
-      Scene = 1;
-      println("Derer 300 fnuller - SKIFT til scene 1");
+        fmass++;
+      } else 
+        if (fmass >= 300) {
+          Scene = 1;
+          println("Derer 300 fnuller - SKIFT til scene 1");
+        }
     }
   }
 

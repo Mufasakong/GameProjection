@@ -7,10 +7,15 @@
   
   PImage nullerman;
   PImage floor;
+  
+  PImage startMenuB;
+  PImage winScreen;
+  PImage loseScreen;
+  PImage gameRules;
 
 
 void loadBilleder(){
-    car = loadImage("Toycar.png");
+    car = loadImage("ToyCar.png");
     car.resize(2123/15, 1361/15);
     
     Arm[0] = loadImage("BertArm.png");
@@ -49,5 +54,15 @@ void loadBilleder(){
   LBT.resize(250,200);
   LT = loadImage("LT.png");
   LT.resize(250,200);
-
+  
+  //Menuer
+  startMenuB = loadImage("forside.png");
+  startMenuB.resize(1920,1080);
+  winScreen = loadImage("WinPage.png");
+  winScreen.resize(1920,1080);
+  loseScreen = loadImage("BustedByMomma.png");
+  loseScreen.resize(1920,1080);
+  gameRules = loadImage("Regler.png");
+  gameRules.resize(1920,1080);
+  
 }
