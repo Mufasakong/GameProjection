@@ -4,7 +4,7 @@ class nullerTask {
   int bY = 0;
   //PImage car;
   // PImage Arm;
-int fmass;
+
 
   // PImage floor;
 
@@ -35,11 +35,17 @@ void display() {
         obstacles.x = random(width);
         obstacles.y = random(height, 800);
         gravity.y = random(4, 20);
-        fmass++;
-      }
+              fmass++;
+      }else{
+        if (fmass < 300)
+        gMass
       
-    } else if (fmass > 300) {
+      }
+
+      
+    } if (fmass >= 300) {
       Scene = 1;
+      println("Derer 300 fnuller - SKIFT til scene 1");
     }
   }
 

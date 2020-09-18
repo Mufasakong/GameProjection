@@ -41,7 +41,7 @@ void setup() {
   
   obj4 = new nullerTask();
   m = 0;
- // fmass = 0;
+ fmass = 0;
   carY = -50;
 
 
