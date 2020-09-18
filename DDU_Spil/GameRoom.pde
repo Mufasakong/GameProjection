@@ -43,6 +43,7 @@ class GameRoom {
       Scene = 3;
     }
     if (AreaCheck(BedPos.x, BedPos.y, BedSize.x, BedSize.y)) {
+      Scene = 4;
     }
   }
 

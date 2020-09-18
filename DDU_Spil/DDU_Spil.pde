@@ -1,5 +1,10 @@
 //Globale Variabler
-
+ArrayList<nullerTask> nullerTaskList = new ArrayList<nullerTask>();
+nullerTask obj4;
+int m;
+int fmass;
+boolean GrabCar = false;
+int carY; 
 
 //Objekter
 GameRoom GR;
@@ -11,6 +16,10 @@ PImage OpenCloset;
 PImage Grimlock;
 PImage KommodeOpen;
 PImage Isbjoern;
+PImage RT;
+PImage LBT;
+PImage LT;
+
 
 int Scene = 1;
 int toy = 0;
@@ -23,18 +32,17 @@ void setup() {
   imageMode(CENTER);
   rectMode(CENTER);
   frameRate(60);
-
-  //Skab Task
-  OpenCloset = loadImage("OpenCloset.png");
-  OpenCloset.resize(2780/2, 970); 
-  Grimlock = loadImage("Grimlock.png");
-  Grimlock.resize(200, 200);
-
-  //Kommode Task
-  KommodeOpen = loadImage("Kommodeopen.png");
-  KommodeOpen.resize(4100/4, 3043/4);
-  Isbjoern = loadImage("isbjoern.png");
-  Isbjoern.resize(1779/5, 1192/5);
+  
+  loadBilleder();
+  
+   for (int i = 0; i < 100; i++) {
+    nullerTaskList.add(new nullerTask());
+  }
+  
+  obj4 = new nullerTask();
+  m = 0;
+ fmass = 0;
+  carY = -50;
 
 
   //Objekt Creater
@@ -57,8 +65,6 @@ void draw() {
     Interface.UIDisplay();
   }
 
-  Interface.Progress();
-
   if (Scene == 2) {
     ST.displayOpenSkab();
   }
@@ -68,11 +74,21 @@ void draw() {
   }
 
   if (Scene == 4) {
+      obj4.movingImages();
+    if (GrabCar == true) {
+  for (nullerTask t4 : nullerTaskList) {
+    noCursor();
+    t4.fall();
+    t4.display();
+      }
+    }
   }
   if (Scene == 5) {
   }
   if (Scene == 6) {
   }
+  
+    Interface.Progress();
 
   //Debug
   if (mouseButton == RIGHT) {
@@ -91,6 +107,13 @@ void mouseClicked() {
     ST.skabOpenKnap();
   } else if (Scene == 3) {
     KT.kommodeOpenKnap();
+  } else if (Scene == 4) {
+    if (mouseX > width/2-2123/15/2 && mouseX < width/2+2123/15/2 && mouseY < 250+1361/15/2 && mouseY > 250-1361/15/2) {
+      if (carY == 250) {
+        GrabCar = true;
+        toy++;
+      }
+    }
   }
 }
 
