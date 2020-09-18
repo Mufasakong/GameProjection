@@ -1,7 +1,7 @@
 class KommodeTask{
 
   //variabler
-  Boolean kommodeToy = true;
+
 
   void displayOpenKommode() {
     image(KommodeOpen,width/2,height/2);

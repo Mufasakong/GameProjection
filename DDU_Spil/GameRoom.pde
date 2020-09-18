@@ -24,7 +24,7 @@ class GameRoom {
     Bertram.resize(153, 326);
 
     Bed = loadImage("Bed.png");
-    Bed.resize(2510/4, 1788/4);
+    Bed.resize(1393/3, 941/3);
   }
 
   public boolean AreaCheck(float x, float y, float w, float h) {
@@ -48,9 +48,10 @@ class GameRoom {
   }
 
   void display() {
+    imageMode(CENTER);
     image(Room, width/2, height/2);
     image(Bertram, BertPos.x, BertPos.y);
-    image(Bed, 319, height/2+80);
+    image(Bed, 449, 550);
   }
 
   void mouseCheck() {
@@ -80,8 +81,8 @@ class GameRoom {
       beginShape();
       vertex(246, 702);
       vertex(246, 629);
-      vertex(604, 564);
-      vertex(604, 616);
+      vertex(624, 564);
+      vertex(624, 615);
       endShape(CLOSE);
     }
   }

@@ -1,7 +1,6 @@
 class SkabTask {
 
   //variabler
-  Boolean skabToy = true;
 
   void displayOpenSkab() {
     image(OpenCloset, width/2, height/2);

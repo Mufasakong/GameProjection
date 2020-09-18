@@ -1,4 +1,4 @@
-class Menuer {
+class Menuer extends nullerTask{
 
   void startMenu() {
     image(startMenuB, width/2, height/2);
@@ -25,11 +25,13 @@ class Menuer {
   void winScreenKnap() {
     if (mouseX > 1145 && mouseX < 1145 + 582 && mouseY > 704 && mouseY < 704 + 171) {
       println("WinScreen try again knap er trykket");
+      restart();
       Scene = 1;
     }
     if (mouseX > 191 && mouseX < 1145 + 582 && mouseY > 704 && mouseY < 704 + 171) {
       println("WinScreen hovedmenu knap er trykket");
-      Scene = 0;
+       restart();
+       Scene = 0;
     }
   }
 
@@ -40,10 +42,12 @@ class Menuer {
   void loseScreenKnap() {
     if (mouseX > 1145 && mouseX < 1145 + 582 && mouseY > 704 && mouseY < 704 + 171) {
       println("loseScreen try again knap er trykket");
+      restart();
       Scene = 1;
     }
     if (mouseX > 191 && mouseX < 191 + 582 && mouseY > 704 && mouseY < 704 + 171) {
       println("loseScreen hovedmenu knap er trykket");
+      restart();
       Scene = 0;
     }
   }
@@ -59,3 +63,13 @@ class Menuer {
     }
   }
 }
+
+  void restart() {
+ 
+      toy = 0;
+      i = 0;
+      skabToy = true;
+      kommodeToy = true;
+      GrabCar = false;
+      fmass = 0;
+  }

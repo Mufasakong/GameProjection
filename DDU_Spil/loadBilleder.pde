@@ -15,7 +15,7 @@
 
 
 void loadBilleder(){
-    car = loadImage("ToyCar.png");
+    car = loadImage("Toycar.png");
     car.resize(2123/15, 1361/15);
     
     Arm[0] = loadImage("BertArm.png");

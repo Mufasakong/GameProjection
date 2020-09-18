@@ -5,7 +5,7 @@ public class UI extends GameRoom {
 
   PImage[] Bar = new PImage[2];
 
-  float i = 0;
+  
 
   int resizeBarB = 343;
   int resizeBarH = 1904;
@@ -63,14 +63,12 @@ public class UI extends GameRoom {
       image(BertMomAngry, 100, 94);
     }
     textSize(64);
+    fill(255);
     text(round(180-i), 66, 550);
-    text(fmass, width/2, 50);
 
     //Score
     text(round(0+toy)+"/3", 1700, 100);
 
-    //GAMEOVER
-    if (180-i < 1) {
-    }
+    
   }
 }

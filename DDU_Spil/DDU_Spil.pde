@@ -1,6 +1,6 @@
 //Globale Variabler
 ArrayList<nullerTask> nullerTaskList = new ArrayList<nullerTask>();
-nullerTask obj4;
+nullerTask UST;
 int m;
 int fmass;
 boolean GrabCar = false;
@@ -25,6 +25,11 @@ PImage LT;
 int Scene = 0;
 int toy = 0;
 
+float i = 0;
+
+  Boolean skabToy = true;
+  Boolean kommodeToy = true;
+
 //Setup
 void setup() {
   smooth();
@@ -40,7 +45,7 @@ void setup() {
     nullerTaskList.add(new nullerTask());
   }
 
-  obj4 = new nullerTask();
+  UST = new nullerTask();
   m = 0;
   fmass = 0;
   carY = -50;
@@ -58,14 +63,23 @@ void draw() {
   clear();
 
   background(100, 100, 175);
+  if (i > 180){
+  Scene = -2;
+  }
+  
+  if (toy == 3){
+  Scene = -1;
+  }
   if (Scene == 0) {
     Menu.startMenu();
   }
   if (Scene == -1) {
     Menu.winScreen();
+    cursor();
   }
   if (Scene == -2){
     Menu.loseScreen();
+    cursor();
   }
   if (Scene == -3){
     Menu.gameRules();
@@ -73,12 +87,12 @@ void draw() {
 
   if (Scene >= 1) {
     GR.display();
-    Interface.Progress();
   }
 
   if (Scene == 1) {
     GR.mouseCheck();
     Interface.UIDisplay();
+    cursor();
   }
 
   if (Scene == 2) {
@@ -90,24 +104,25 @@ void draw() {
   }
 
   if (Scene == 4) {
-    obj4.movingImages();
-    if (GrabCar == true) {
-      for (nullerTask t4 : nullerTaskList) {
-        noCursor();
-        t4.fall();
-        t4.display();
-      }
+    noCursor();
+      UST.movingImages();
+
+  for (nullerTask t4 : nullerTaskList) {
+    t4.nullermen();
     }
   }
 
-
-  //Interface.Progress();
+  if (Scene >= 1) {
+    Interface.Progress();
+  }
 
   //Debug
   if (mouseButton == RIGHT) {
     ellipse( mouseX, mouseY, 2, 2 );
+    fill(0);
     text( "x: " + mouseX + " y: " + mouseY, mouseX + 2, mouseY );
     text(frameRate, mouseX+64, mouseY+64);
+    fill(255);
   }
   //image(Isbjoern, 1240, 650);
 }
@@ -115,32 +130,23 @@ void draw() {
 void mouseClicked() {
   if (Scene == 0) {
     Menu.startMenuKnap();
-  }
-  if (Scene == -1) {
+  } else if (Scene == -1) {
     Menu.winScreenKnap();
-  }
-  if (Scene == -2) {
+  } else if (Scene == -2) {
     Menu.loseScreenKnap();
-  }
-  if (Scene == -3) {
+  } else if (Scene == -3) {
    Menu.gameRulesKnap(); 
-  }
-
-  if (Scene == 1) {
+  } else if (Scene == 1) {
     GR.MouseInteractions();
   } else if (Scene == 2) {
     ST.skabOpenKnap();
   } else if (Scene == 3) {
     KT.kommodeOpenKnap();
   } else if (Scene == 4) {
-    if (mouseX > width/2-2123/15/2 && mouseX < width/2+2123/15/2 && mouseY < 250+1361/15/2 && mouseY > 250-1361/15/2) {
-      if (carY == 250) {
-        GrabCar = true;
-        toy++;
+    UST.GetCar();
       }
     }
-  }
-}
+  
 
 void mousePressed() {
 }
