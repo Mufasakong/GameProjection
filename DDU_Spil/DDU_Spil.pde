@@ -13,13 +13,7 @@ SkabTask ST;
 KommodeTask KT;
 Menuer Menu;
 
-PImage OpenCloset;
-PImage Grimlock;
-PImage KommodeOpen;
-PImage Isbjoern;
-PImage RT;
-PImage LBT;
-PImage LT;
+
 
 
 int Scene = 0;
@@ -128,6 +122,14 @@ void draw() {
   }
   //image(Isbjoern, 1240, 650);
 }
+
+public boolean AreaCheck(float x, float y, float w, float h) {
+    if (mouseX > x-w/2 && mouseX < x+w/2 && mouseY < y+h/2 && mouseY > y-h/2) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
 void mouseClicked() {
   if (Scene == 0) {

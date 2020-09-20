@@ -1,9 +1,5 @@
 class GameRoom {
 
-  PImage Room;
-  PImage Bertram;
-  PImage Bed;
-
   PVector BertPos = new PVector(width/2, height/2+200);
 
 
@@ -18,22 +14,10 @@ class GameRoom {
   PVector BedSize = new PVector(355, 100);
 
   GameRoom() {
-    Room = loadImage("GameRoom.png");
-    Room.resize(round(4345/2.5), round(2906/2.5));
-    Bertram = loadImage("Bert.png");
-    Bertram.resize(153, 326);
-
-    Bed = loadImage("Bed.png");
-    Bed.resize(1393/3, 941/3);
+   
   }
 
-  public boolean AreaCheck(float x, float y, float w, float h) {
-    if (mouseX > x-w/2 && mouseX < x+w/2 && mouseY < y+h/2 && mouseY > y-h/2) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  
 
   void MouseInteractions() {
     if (AreaCheck(ClosetPos.x, ClosetPos.y, ClosetSize.x, ClosetSize.y)) {

@@ -1,9 +1,5 @@
 public class UI extends GameRoom {
-  PImage Empty;
-  PImage BertMom;
-  PImage BertMomAngry;
-
-  PImage[] Bar = new PImage[2];
+  
 
   
 
@@ -13,19 +9,7 @@ public class UI extends GameRoom {
   PFont Skater;
 
   UI () {
-    Empty = loadImage("Meter_ver.png");
-    Empty.resize(490/5, 2025/5);
-
-    BertMom = loadImage("Mymomv2.png");
-    BertMom.resize(200, 200);
-
-    BertMomAngry = loadImage("Mymom_red_face.png");
-    BertMomAngry.resize(200, 200);
-
-    Bar[0] = loadImage("Bar_ver.png");
-    Bar[1] = loadImage("RedBar_ver.png");
-    Bar[0].resize(343/5, 1904/5);
-    Bar[1].resize(343/5, 1904/5);
+    
 
     Skater = createFont("Skater.ttf", 64);
     textFont(Skater);
