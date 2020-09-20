@@ -40,13 +40,15 @@ void setup() {
   frameRate(60);
 
   loadBilleder();
-
-  for (int i = 0; i < 100; i++) {
+  
+  for (int u = 0; u < 100; u++) {
     nullerTaskList.add(new nullerTask());
+    if (Scene != 4) {
+    nullerTaskList.remove(new nullerTask());
+    }
   }
 
   UST = new nullerTask();
-  m = 0;
   fmass = 0;
   carY = -50;
 

@@ -1,5 +1,9 @@
-class Menuer extends nullerTask{
-
+class Menuer extends nullerTask {
+  
+  Menuer() {
+    
+  }
+  
   void startMenu() {
     image(startMenuB, width/2, height/2);
   } 
@@ -56,20 +60,37 @@ class Menuer extends nullerTask{
     image(gameRules, width/2, height/2);
   }
 
+
   void gameRulesKnap() {
     if (mouseX > 81 && mouseX < 81 + 219 && mouseY > 72 && mouseY < 72 + 86) {
       println("gameRules tilbage knap er trykket");
       Scene = 0;
     }
   }
-}
 
   void restart() {
- 
+      
+      
+      
+      
       toy = 0;
       i = 0;
       skabToy = true;
       kommodeToy = true;
+      
+      //Task 4
+      
       GrabCar = false;
-      fmass = 0;
+      carY = -50;
+      bY = 0;
+      endGame = 0;
+        UST = new nullerTask();
+        obstacles.x = random(width);
+        obstacles.y = height;  
+        gravity.x = random(0, 20);
+        gravity.y = random(4, 20);
+      nullermen();
+      
+      
   }
+}

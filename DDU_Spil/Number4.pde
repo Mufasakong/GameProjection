@@ -46,9 +46,9 @@ void display() {
         
       }
          
-    } if (endGame <= 350) {
+    } if (endGame <= 350 && GrabCar == true) {
       endGame++;
-      println(endGame);
+      
       
     }  if (endGame == 350){
       Scene = 1;
@@ -56,6 +56,7 @@ void display() {
       toy = 3;
       }
       
+     
     } 
     
   }
@@ -64,6 +65,7 @@ void display() {
         if (GrabCar == true) {
     fall();
     display();
+ 
         }
   }
   
@@ -116,6 +118,9 @@ void display() {
   if (mouseX > width/2-2123/15/2 && mouseX < width/2+2123/15/2 && mouseY < 250+1361/15/2 && mouseY > 250-1361/15/2) {
       if (carY == 250 && GrabCar == false) {
         GrabCar = true;
+         
+     
+        println(endGame);
         if (toy < 2) {
         toy++;
         }
