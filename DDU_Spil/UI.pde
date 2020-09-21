@@ -1,8 +1,4 @@
 public class UI extends GameRoom {
-  
-
-  
-
   int resizeBarB = 343;
   int resizeBarH = 1904;
 

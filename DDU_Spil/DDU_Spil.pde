@@ -13,16 +13,13 @@ SkabTask ST;
 KommodeTask KT;
 Menuer Menu;
 
-
-
-
 int Scene = 0;
 int toy = 0;
 
 float i = 0;
 
-  Boolean skabToy = true;
-  Boolean kommodeToy = true;
+Boolean skabToy = true;
+Boolean kommodeToy = true;
 
 //Setup
 void setup() {
@@ -120,9 +117,11 @@ void draw() {
     text(frameRate, mouseX+64, mouseY+64);
     fill(255);
   }
-  //image(Isbjoern, 1240, 650);
+  
 }
 
+
+// Når der skal trykkes musen
 public boolean AreaCheck(float x, float y, float w, float h) {
     if (mouseX > x-w/2 && mouseX < x+w/2 && mouseY < y+h/2 && mouseY > y-h/2) {
       return true;
