@@ -12,7 +12,7 @@ public class InputField {
         this.W = W;
         this.H = H;
     }
-    public color Background = color(200, 200, 200);
+    public color Background = color(140, 140, 140);
     public color Foreground = color(0, 0, 0);
     public color BackgroundSelected = color(160, 160, 160);
     public color Border = color(30, 30, 30);
