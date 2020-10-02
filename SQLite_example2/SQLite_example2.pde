@@ -6,7 +6,7 @@ import java.security.*;
 SQLite db;
 
  boolean send = false;
- String msg;
+ String msg ="";
  ArrayList<InputField> textboxes = new ArrayList<InputField>();
  String inputTekst;
    StringBuffer hashedValueBuffer = new StringBuffer();
@@ -55,14 +55,14 @@ void InitLayout() {
     void keyPressed() {
         
       
-        
+        /*
         if (send) {
-            text(msg, 10, 260);
-            dat();
+            
+            
             
             println("krypteret");
             send=false;
-        }
+        } */
       
         for (InputField t : textboxes) {
             if (t.KEYPRESSED(key, keyCode)) {
@@ -70,6 +70,8 @@ void InitLayout() {
                background(180);
                 
                 send = true;
+                text(msg, 10, 260);
+                dat();
                 msg = "Password: " + textboxes.get(1).Text + "\n" + "Encrypted: " + hashedValueBuffer.toString(); //<>//
                   //Her udskrives den oprindelige tekst
                 
