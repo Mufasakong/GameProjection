@@ -66,9 +66,9 @@ public class InputField {
                 // CHECK IF THE KEY IS A LETTER OR A NUMBER
                 boolean isKeyCapitalLetter = (KEY >= 'A' && KEY <= 'Z');
                 boolean isKeySmallLetter = (KEY >= 'a' && KEY <= 'z');
-                //boolean isKeyNumber = (KEY >= '0' && KEY <= '9');
+                boolean isKeyNumber = (KEY >= '0' && KEY <= '9');
 
-                if (isKeyCapitalLetter || isKeySmallLetter) {
+                if (isKeyCapitalLetter || isKeySmallLetter ||isKeyNumber) {
                     addText(KEY);
                 }
             }

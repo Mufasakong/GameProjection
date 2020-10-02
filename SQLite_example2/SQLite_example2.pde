@@ -6,40 +6,15 @@ import java.security.*;
 SQLite db;
 
  boolean send = false;
- String msg = "";
+ String msg;
  ArrayList<InputField> textboxes = new ArrayList<InputField>();
- String inputTekst= textboxes.get(1).Text;
+ String inputTekst;
    StringBuffer hashedValueBuffer = new StringBuffer();
 
 void setup()
 {
     size( 1000, 1000 );
     InitLayout();
-    
-    try {
-  //Vha. MessageDigest kan vi anvende en hashing algoritme.... her SHA-256 ...
-  //prøv f.eks. MD-5 og se om du kan bryde den ved at søge på nettet!
-  MessageDigest md = MessageDigest.getInstance("SHA-256"); 
-  
-  //Input er en tekst der skal "hashes"
- 
-    
-  //MassageDigest objektet "fodres" med teksten, der skal "hashes"
-    md.update(inputTekst.getBytes());    
-
-  //digest funktionen giver "hash-værdien", men i hexadecimale bytes 
-  byte[] byteList = md.digest();
-  
-  //Her anvendes processings hex funktion, der kan konvertere hexadecimale bytes til Strings
-  //så det er muligt at læse "hash-værdien"
-
-  for (byte b : byteList)hashedValueBuffer.append(hex(b)); 
-}
-
-catch (Exception e) {
-  System.out.println("Exception: "+e);
-}
-
     db = new SQLite( this, "test.db" );  // open database file
 
     if ( db.connect() )
@@ -58,38 +33,49 @@ catch (Exception e) {
 }
 
 void draw(){
-  background(180);
+  //background(180);
+  inputTekst = textboxes.get(1).Text;
+  
   for (InputField t : textboxes) {
             t.DRAW();
         }
+  
 
-        if (send) {
-            text(msg, (width - textWidth(msg)) / 2, 260);
-        }
-}
+        
+} //<>//
 
 void InitLayout() {
-        InputField receiver = new InputField();
-        receiver.W = 300;
-        receiver.H = 35;
-        receiver.X = (width - receiver.W) / 2;
-        receiver.Y = 50;
-        textboxes.add(receiver);
+        InputField User = new InputField((width - 300 / 2), 50, 300, 35);
+        textboxes.add(User);
 
-        InputField message = new InputField((width - 300) / 2, 100, 300, 35);
-        textboxes.add(message);
+        InputField Password = new InputField((width - 300) / 2, 100, 300, 35);
+        textboxes.add(Password);
     }
     
     void keyPressed() {
+        
+      
+        
+        if (send) {
+            text(msg, 10, 260);
+            dat();
+            
+            println("krypteret");
+            send=false;
+        }
+      
         for (InputField t : textboxes) {
             if (t.KEYPRESSED(key, keyCode)) {
+               clear(); 
+               background(180);
+                
                 send = true;
-                msg = "Message is: " + textboxes.get(1).Text;
+                msg = "Password: " + textboxes.get(1).Text + "\n" + "Encrypted: " + hashedValueBuffer.toString(); //<>//
                   //Her udskrives den oprindelige tekst
                 
                 println("Den oprindelige tekst: "+ inputTekst);
                 //Her udskrives "hash-værdien" af teksten
-                println("SHA-256 værdien af teksten: " +hashedValueBuffer.toString());
+                println("SHA-256 værdien af teksten: " + hashedValueBuffer.toString());
                 
             }
         }
@@ -101,6 +87,34 @@ void InitLayout() {
         }
     }
 
+void dat() {
+try {
+  //Vha. MessageDigest kan vi anvende en hashing algoritme.... her SHA-256 ...
+  //prøv f.eks. MD-5 og se om du kan bryde den ved at søge på nettet!
+  MessageDigest md = MessageDigest.getInstance("SHA-256"); 
+  
+  //Input er en tekst der skal "hashes"
+ 
+    
+  //MassageDigest objektet "fodres" med teksten, der skal "hashes"
+    md.update(inputTekst.getBytes());    
+
+  //digest funktionen giver "hash-værdien", men i hexadecimale bytes 
+  byte[] byteList = md.digest();
+  
+  //Her anvendes processings hex funktion, der kan konvertere hexadecimale bytes til Strings
+  //så det er muligt at læse "hash-værdien"
+
+  for (byte b : byteList){
+  hashedValueBuffer.append(hex(b));  //<>//
+}
+
+}
+
+catch (Exception e) {
+  System.out.println("Exception: "+e);
+}
+}
 
 class TableOne
 {
