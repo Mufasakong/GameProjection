@@ -3,9 +3,6 @@ public class InputField {
 
   public int X, Y, H, W;
 
-  InputField() {
-  }
-
   InputField(int X, int Y, int W, int H) {
     this.X = X;
     this.Y = Y;

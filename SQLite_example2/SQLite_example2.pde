@@ -1,6 +1,4 @@
-// fjenett 20120226 //<>// //<>// //<>// //<>// //<>// //<>// //<>//
-
-import de.bezier.data.sql.*;
+import de.bezier.data.sql.*; //<>//
 import java.security.*;
 
 SQLite db;
@@ -8,7 +6,7 @@ SQLite db;
 boolean send = false;
 String msg = "";
 ArrayList<InputField> textboxes = new ArrayList<InputField>();
-String inputTekst;
+String userTekst, passTekst, hashedTekst;
 StringBuffer hashedValueBuffer = new StringBuffer();
 
 void setup()
@@ -27,22 +25,24 @@ void setup()
     {
       TableOne t = new TableOne();
       db.setFromRow( t );
-      println( t );
+      println(t.User);
+      println(t.Password);
     }
   }
 }
 
 void draw() {
   //background(180);
-  inputTekst = textboxes.get(1).Text;
-
+  userTekst = textboxes.get(0).Text;
+  passTekst = textboxes.get(1).Text;
+  
   for (InputField t : textboxes) {
     t.DRAW();
   }
 }
 
 void InitLayout() {
-  InputField User = new InputField((width - 300 / 2), 50, 300, 35);
+  InputField User = new InputField((width - 300) / 2, 50, 300, 35);
   textboxes.add(User);
 
   InputField Password = new InputField((width - 300) / 2, 100, 300, 35);
@@ -67,12 +67,13 @@ void keyPressed() {
 
       send = true;
       dat();
-      msg = "Password: " + textboxes.get(1).Text + "\n" + "Encrypted: " + hashedValueBuffer.toString();
+      msg = "Username:" + userTekst + "\n" + "Password: " + passTekst + "\n" + "Encrypted: " + hashedValueBuffer.toString();;
       text(msg, 10, 260);
+      //db.saveToDatabase(passTekst);
 
       //Her udskrives den oprindelige tekst
 
-      println("Den oprindelige tekst: "+ inputTekst);
+      println("Den oprindelige tekst: "+ passTekst);
       //Her udskrives "hash-værdien" af teksten
       println("SHA-256 værdien af teksten: " + hashedValueBuffer.toString());
     }
@@ -93,9 +94,8 @@ void dat() {
 
     //Input er en tekst der skal "hashes"
 
-
     //MassageDigest objektet "fodres" med teksten, der skal "hashes"
-    md.update(inputTekst.getBytes());    
+    md.update(passTekst.getBytes());    
 
     //digest funktionen giver "hash-værdien", men i hexadecimale bytes 
     byte[] byteList = md.digest();
