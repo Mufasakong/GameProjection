@@ -1,4 +1,4 @@
-// fjenett 20120226 //<>// //<>// //<>// //<>// //<>// //<>//
+// fjenett 20120226 //<>// //<>// //<>// //<>// //<>// //<>// //<>//
 
 import de.bezier.data.sql.*;
 import java.security.*;
@@ -13,7 +13,7 @@ StringBuffer hashedValueBuffer = new StringBuffer();
 
 void setup()
 {
-  size( 1000, 1000 );
+  size( 1200, 800 );
   InitLayout();
   db = new SQLite( this, "test.db" );  // open database file
 
@@ -52,18 +52,18 @@ void InitLayout() {
 void keyPressed() {
 
 
-/*
+  /*
   if (send) {
-    println("krypteret");
-    send=false;
-  } */
+   println("krypteret");
+   send=false;
+   } */
 
   for (InputField t : textboxes) {
     if (t.KEYPRESSED(key, keyCode)) {
       clear(); 
       background(180);
 
-     
+
 
       send = true;
       dat();
@@ -89,7 +89,7 @@ void dat() {
   try {
     //Vha. MessageDigest kan vi anvende en hashing algoritme.... her SHA-256 ...
     //prøv f.eks. MD-5 og se om du kan bryde den ved at søge på nettet!
-    MessageDigest md = MessageDigest.getInstance("SHA-256");  //<>//
+    MessageDigest md = MessageDigest.getInstance("SHA-256"); 
 
     //Input er en tekst der skal "hashes"
 

@@ -1,114 +1,114 @@
 public class InputField {
-    public int TEXTSIZE = 24;
+  public int TEXTSIZE = 24;
 
-    public int X, Y, H, W;
+  public int X, Y, H, W;
 
-    InputField() {
+  InputField() {
+  }
+
+  InputField(int X, int Y, int W, int H) {
+    this.X = X;
+    this.Y = Y;
+    this.W = W;
+    this.H = H;
+  }
+  public color Background = color(140, 140, 140);
+  public color Foreground = color(0, 0, 0);
+  public color BackgroundSelected = color(160, 160, 160);
+  public color Border = color(30, 30, 30);
+
+  public boolean BorderEnable = false;
+  public int BorderWeight = 1;
+
+  public String Text = "";
+  public int TextLength = 0;
+
+  private boolean selected = false;
+
+
+
+
+  void DRAW() {
+    // DRAWING THE BACKGROUND
+    if (selected) {
+      fill(color(BackgroundSelected));
+    } else {
+      fill(color(Background));
     }
 
-    InputField(int X, int Y, int W, int H) {
-        this.X = X;
-        this.Y = Y;
-        this.W = W;
-        this.H = H;
+    if (BorderEnable) {
+      strokeWeight(BorderWeight);
+      stroke(color(Border));
+    } else {
+      noStroke();
     }
-    public color Background = color(140, 140, 140);
-    public color Foreground = color(0, 0, 0);
-    public color BackgroundSelected = color(160, 160, 160);
-    public color Border = color(30, 30, 30);
 
-    public boolean BorderEnable = false;
-    public int BorderWeight = 1;
+    rect(X, Y, W, H);
 
-    public String Text = "";
-    public int TextLength = 0;
+    fill(color(Foreground));
 
-    private boolean selected = false;
+    textSize(TEXTSIZE);
+    text(Text, X + (textWidth("a") / 2), Y + TEXTSIZE);
+  }
 
+  // IF THE KEYCODE IS ENTER RETURN 1
+  // ELSE RETURN 0
+  boolean KEYPRESSED(char KEY, int KEYCODE) {
+    if (selected) {
+      if (KEYCODE == (int)BACKSPACE) {
+        BACKSPACE();
+      } else if (KEYCODE == 32) {
+        // SPACE
+        addText(' ');
+      } else if (KEYCODE == (int)ENTER) {
+        return true;
+      } else {
+        // CHECK IF THE KEY IS A LETTER OR A NUMBER
+        boolean isKeyCapitalLetter = (KEY >= 'A' && KEY <= 'Z');
+        boolean isKeySmallLetter = (KEY >= 'a' && KEY <= 'z');
+        boolean isKeyNumber = (KEY >= '0' && KEY <= '9');
 
-
-
-    void DRAW() {
-        // DRAWING THE BACKGROUND
-        if (selected) {
-            fill(color(BackgroundSelected));
-        } else {
-            fill(color(Background));
+        if (isKeyCapitalLetter || isKeySmallLetter ||isKeyNumber) {
+          addText(KEY);
         }
-
-        if (BorderEnable) {
-            strokeWeight(BorderWeight);
-            stroke(color(Border));
-        } else {
-            noStroke();
-        }
-
-        rect(X, Y, W, H);
-
-        fill(color(Foreground));
-
-        textSize(TEXTSIZE);
-        text(Text, X + (textWidth("a") / 2), Y + TEXTSIZE);
+      }
     }
 
-    // IF THE KEYCODE IS ENTER RETURN 1
-    // ELSE RETURN 0
-    boolean KEYPRESSED(char KEY, int KEYCODE) {
-        if (selected) {
-            if (KEYCODE == (int)BACKSPACE) {
-                BACKSPACE();
-            } else if (KEYCODE == 32) {
-                // SPACE
-                addText(' ');
-            } else if (KEYCODE == (int)ENTER) {
-                return true;
-            } else {
-                // CHECK IF THE KEY IS A LETTER OR A NUMBER
-                boolean isKeyCapitalLetter = (KEY >= 'A' && KEY <= 'Z');
-                boolean isKeySmallLetter = (KEY >= 'a' && KEY <= 'z');
-                boolean isKeyNumber = (KEY >= '0' && KEY <= '9');
+    return false;
+  }
 
-                if (isKeyCapitalLetter || isKeySmallLetter ||isKeyNumber) {
-                    addText(KEY);
-                }
-            }
-        }
+  private void addText(char text) {
+    // IF THE TEXT WIDHT IS IN BOUNDARIES OF THE TEXTBOX
+    if (textWidth(Text + text) < W) {
+      Text += text;
+      TextLength++;
+    }
+  }
 
-        return false;
+  private void BACKSPACE() {
+    if (TextLength - 1 >= 0) {
+      Text = Text.substring(0, TextLength - 1);
+      TextLength--;
+    }
+  }
+
+  // FUNCTION FOR TESTING IS THE POINT
+  // OVER THE TEXTBOX
+  private boolean overBox(int x, int y) {
+    if (x >= X && x <= X + W) {
+      if (y >= Y && y <= Y + H) {
+        return true;
+      }
     }
 
-    private void addText(char text) {
-        // IF THE TEXT WIDHT IS IN BOUNDARIES OF THE TEXTBOX
-        if (textWidth(Text + text) < W) {
-            Text += text;
-            TextLength++;
-        }
-    }
+    return false;
+  }
 
-    private void BACKSPACE() {
-        if (TextLength - 1 >= 0) {
-            Text = Text.substring(0, TextLength - 1);
-            TextLength--;
-        }
+  void PRESSED(int x, int y) {
+    if (overBox(x, y)) {
+      selected = true;
+    } else {
+      selected = false;
     }
-
-    // FUNCTION FOR TESTING IS THE POINT
-    // OVER THE TEXTBOX
-    private boolean overBox(int x, int y) {
-        if (x >= X && x <= X + W) {
-            if (y >= Y && y <= Y + H) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    void PRESSED(int x, int y) {
-        if (overBox(x, y)) {
-            selected = true;
-        } else {
-            selected = false;
-        }
-    }
+  }
 }
