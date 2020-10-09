@@ -30,63 +30,62 @@ void draw() {
   translate(width*0.5, height*0.5);
   rotateY(angle);
   angle += 0.01;
- 
+
   lights();
   fill(200);
   noStroke();
   //sphere(r);
   shape(globe);
 
- 
-    
-    JSONArray position = json.getJSONArray("positions");
-    
-    JSONObject o = position.getJSONObject(0);
-    
-    float lat = o.getFloat("satlatitude");
-    float lon = o.getFloat("satlongitude");
 
 
-    // original version
-    // float theta = radians(lat) + PI/2;
+  JSONArray position = json.getJSONArray("positions");
 
-    // fix: no + PI/2 needed, since latitude is between -180 and 180 deg
-    float theta = radians(lat);
+  JSONObject o = position.getJSONObject(0);
 
-    float phi = radians(lon) + PI;
-
-    // original version
-    // float x = r * sin(theta) * cos(phi);
-    // float y = -r * sin(theta) * sin(phi);
-    // float z = r * cos(theta);
-
-    // fix: in OpenGL, y & z axes are flipped from math notation of spherical coordinates
-    float x = r * cos(theta) * cos(phi);
-    float y = -r * sin(theta);
-    float z = -r * cos(theta) * sin(phi);
-
-    PVector pos = new PVector(x, y, z);
-
-    //float h = pow(10, mag);
-     //float maxh = pow(10, 7);
-    //h = map(h, 0, maxh, 10, 100);
-    PVector xaxis = new PVector(1, 0, 0);
-    float angleb = PVector.angleBetween(xaxis, pos);
-    PVector raxis = xaxis.cross(pos);
+  float lat = o.getFloat("satlatitude");
+  float lon = o.getFloat("satlongitude");
 
 
-    pushMatrix();
-    translate(x, y+30, z);
-    rotate(angleb, raxis.x, raxis.y, raxis.z);
-    fill(255);
-    box(10, 10, 10);
-    popMatrix();
-    
-    println("Print angleb " + angleb);
-    println("Print raxis x " + raxis.x);
-    println("Print raxis y " + raxis.y);
-    println("Print raxis z " + raxis.z);
-  
+  // original version
+  // float theta = radians(lat) + PI/2;
+
+  // fix: no + PI/2 needed, since latitude is between -180 and 180 deg
+  float theta = radians(lat);
+
+  float phi = radians(lon) + PI;
+
+  // original version
+  // float x = r * sin(theta) * cos(phi);
+  // float y = -r * sin(theta) * sin(phi);
+  // float z = r * cos(theta);
+
+  // fix: in OpenGL, y & z axes are flipped from math notation of spherical coordinates
+  float x = r * cos(theta) * cos(phi);
+  float y = -r * sin(theta);
+  float z = -r * cos(theta) * sin(phi);
+
+  PVector pos = new PVector(x, y, z);
+
+  //float h = pow(10, mag);
+  //float maxh = pow(10, 7);
+  //h = map(h, 0, maxh, 10, 100);
+  PVector xaxis = new PVector(1, 0, 0);
+  float angleb = PVector.angleBetween(xaxis, pos);
+  PVector raxis = xaxis.cross(pos);
+
+
+  pushMatrix();
+  translate(x, y+30, z);
+  rotate(angleb, raxis.x, raxis.y, raxis.z);
+  fill(255);
+  box(10, 10, 10);
+  popMatrix();
+
+  println("Print angleb " + angleb);
+  println("Print raxis x " + raxis.x);
+  println("Print raxis y " + raxis.y);
+  println("Print raxis z " + raxis.z);
 }
 
 //float[] getData() {}
