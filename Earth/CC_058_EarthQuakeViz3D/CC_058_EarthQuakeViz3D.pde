@@ -26,12 +26,12 @@ void setup() {
 void draw() {
   background(51);
 
-  JSONArray sats = jsonObjekt.getJSONArray("info");
+  JSONObject sats = jsonObjekt.getJSONObject("info");
 
   //JSONObject b = sats.getJSONObject(0);
 
   String id = sats.getString("satname");
-
+  println(id);
   textSize(50);
   text(id, 50, 50);
 
@@ -62,8 +62,6 @@ void draw() {
   PVector xaxis = new PVector(1, 0, 0);
   float angleb = PVector.angleBetween(xaxis, pos);
   PVector raxis = xaxis.cross(pos);
-
-
 
   pushMatrix();
   translate(x, y+30, z);
