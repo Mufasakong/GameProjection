@@ -29,7 +29,7 @@ void draw() {
   background(51);
   translate(width*0.5, height*0.5);
   rotateY(angle);
-  angle += 0.05;
+  angle += 0.01;
  
   lights();
   fill(200);
@@ -76,10 +76,17 @@ void draw() {
 
 
     pushMatrix();
-    translate(x, y, z);
+    translate(x, y+30, z);
     rotate(angleb, raxis.x, raxis.y, raxis.z);
     fill(255);
     box(10, 10, 10);
     popMatrix();
+    
+    println("Print angleb " + angleb);
+    println("Print raxis x " + raxis.x);
+    println("Print raxis y " + raxis.y);
+    println("Print raxis z " + raxis.z);
   
 }
+
+//float[] getData() {}
