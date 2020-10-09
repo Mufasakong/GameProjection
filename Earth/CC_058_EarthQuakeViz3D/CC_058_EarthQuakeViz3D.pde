@@ -24,7 +24,7 @@ void setup() {
 }
 
 void draw() {
-  background(51);
+  background(10);
 
   JSONObject sats = jsonObjekt.getJSONObject("info");
 
@@ -32,6 +32,7 @@ void draw() {
   int id = sats.getInt("satid");
 
   textSize(40);
+  fill(0, 200, 0);
   text("Navn: " + name + "\n" + "ID: " + id, 25, 50);
 
   translate(width*0.5, height*0.5);
@@ -63,7 +64,7 @@ void draw() {
   PVector raxis = xaxis.cross(pos);
 
   pushMatrix();
-  translate(x, y*1.75, z);
+  translate(x*1.25, y*1.25, z*1.25);
   rotate(angleb, raxis.x, raxis.y, raxis.z);
   fill(255);
   box(10, 10, 10);
