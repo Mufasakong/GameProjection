@@ -1,12 +1,16 @@
 float angle;
-JSONObject jayObjekt;
-
-Table table;
 float r = 150;
 
-PImage earth;
-PShape globe;
+JSONObject jayObjekt;
 JSONObject jsonObjekt;
+
+JSONArray J;
+
+Table table;
+
+PImage earth;
+
+PShape globe;
 
 void setup() {
   size(600, 600, P3D);
@@ -21,6 +25,16 @@ void setup() {
 
 void draw() {
   background(51);
+
+  JSONArray sats = jsonObjekt.getJSONArray("info");
+
+  //JSONObject b = sats.getJSONObject(0);
+
+  String id = sats.getString("satname");
+
+  textSize(50);
+  text(id, 50, 50);
+
   translate(width*0.5, height*0.5);
   rotateY(angle);
   angle += 0.01;
@@ -36,9 +50,7 @@ void draw() {
 
   float lat = o.getFloat("satlatitude");
   float lon = o.getFloat("satlongitude");
-
   float theta = radians(lat);
-
   float phi = radians(lon) + PI;
 
   float x = r * cos(theta) * cos(phi);
@@ -52,15 +64,11 @@ void draw() {
   PVector raxis = xaxis.cross(pos);
 
 
+
   pushMatrix();
   translate(x, y+30, z);
   rotate(angleb, raxis.x, raxis.y, raxis.z);
   fill(255);
   box(10, 10, 10);
   popMatrix();
-
-  println("Print angleb " + angleb);
-  println("Print raxis x " + raxis.x);
-  println("Print raxis y " + raxis.y);
-  println("Print raxis z " + raxis.z);
 }
